@@ -4,6 +4,5 @@
 out/
 .class
 *.war
-*.jar
 *.ear
 /.idea/workspace.xml
