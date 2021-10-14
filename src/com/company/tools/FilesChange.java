@@ -12,6 +12,7 @@ public class FilesChange//work with files
     /**
      * Return array, filled "Save" file's info
      **/
+    private final String filesDir = "resources";
     public byte[][] setFields(Scanner a)
     {
         byte[][] ints = new byte[10][10];
@@ -36,7 +37,7 @@ public class FilesChange//work with files
      **/
     public void printInFileArr(byte[][] my, byte[][] en, byte[][] enfield) throws FileNotFoundException
     {
-        PrintStream p = new PrintStream("Save.txt");
+        PrintStream p = new PrintStream(filesDir + "/" + "Save.txt");
         for (int i = 0; i < 3; i++)
         {
             for (int j = 0; j < 10; j++)
@@ -75,7 +76,7 @@ public class FilesChange//work with files
     {
         try
         {
-            fis = new FileInputStream("settings.properties");
+            fis = new FileInputStream(filesDir + "/" + "settings.properties");
             property.load(fis);
             fis.close();
             return property.getProperty(key);
@@ -91,10 +92,10 @@ public class FilesChange//work with files
     {
         try
         {
-            fis = new FileInputStream("settings.properties");
+            fis = new FileInputStream(filesDir + "/" + "settings.properties");
             property.load(fis);
             property.setProperty(key, String.valueOf(value));
-            property.store(new FileOutputStream("settings.properties"), null);
+            property.store(new FileOutputStream(filesDir + "/" + "settings.properties"), null);
             fis.close();
         } catch (IOException ex)
         {
@@ -106,13 +107,13 @@ public class FilesChange//work with files
     {
         try
         {
-            fis = new FileInputStream("settings.properties");
+            fis = new FileInputStream(filesDir + "/" + "settings.properties");
             property.load(fis);
             for (int i = 0; i < keys.length; i++)
             {
                 property.setProperty(keys[i], String.valueOf(values[i]));
             }
-            property.store(new FileOutputStream("settings.properties"), null);
+            property.store(new FileOutputStream(filesDir + "/" + "settings.properties"), null);
             fis.close();
         } catch (IOException ex)
         {

@@ -11,8 +11,10 @@ import javax.swing.table.JTableHeader;
 import javax.swing.table.TableColumn;
 import java.awt.*;
 import java.awt.event.*;
+import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
+import java.nio.file.Path;
 import java.util.Scanner;
 
 public class GUI extends JFrame
@@ -29,7 +31,7 @@ public class GUI extends JFrame
     private final int height = Toolkit.getDefaultToolkit().getScreenSize().height / 2;
     private final double m = height / 400.0;
     private final int change = (int) (22 * m);
-    private final Scanner a = new Scanner(new FileInputStream("Save.txt"));
+    private final Scanner a = new Scanner(new FileInputStream("resources/Save.txt"));
     public byte[] hpEn = {4, 3, 3, 2, 2, 2, 1, 1, 1, 1};
     public byte[] hpMy = {4, 3, 3, 2, 2, 2, 1, 1, 1, 1};
     public final StProc stProc = new StProc();
